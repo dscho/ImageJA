@@ -1256,4 +1256,25 @@ public class Toolbar extends Canvas implements MouseListener, MouseMotionListene
 		setRoundRectArcSize((int)gd.getNextNumber());
 	}
 
+	/**
+	 * Remove the first tool with the given name from the
+	 * ImageJ toolbar, and returns its ID.
+	 *
+	 * If a tool with the name given is not found, the value -1 is returned.
+	 * @param toolName  the name of the tool to remove
+	 * @return  the tool ID before removal
+	 * @author Jean-Yves Tinevez, July 2010
+	 */
+	public int removeTool(String toolName) {
+		for (int i = SPARE1; i <= SPARE8; i++)
+			if (names[i].equals(toolName)) {
+				names[i] = null;
+				icons[i] = null;
+				if (null != menus[i])
+					menus[i].removeAll();
+				repaint();
+				return i;
+			}
+		return -1;
+	}
 }
