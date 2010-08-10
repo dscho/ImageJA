@@ -1272,7 +1272,6 @@ public class Toolbar extends Canvas implements MouseListener, MouseMotionListene
 
 			if (null == names[i])
 				continue;
-			System.out.println(names[i]);// DEBUG
 			if (names[i].startsWith(toolName)) {
 				names[i] = null;
 				icons[i] = null;
